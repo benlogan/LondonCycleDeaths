@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/MapWidget.css" />
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    </head>
+    <body>
+        <div class="container" style="width: 900px;">
+            <h1>London Cycle Deaths</h1>
+
+            <div id="districts" style="position: relative; width: 900px; margin: 0 auto;"></div>
+            <label>
+                <input type="checkbox" id="clasterize" checked />
+                clusterize
+            </label>
+            <div id="slider" style="clear: both; position: relative;">
+                <div id="bike" style="width: 50px; height: 47px; position: absolute; left: 0; top: 0; display: none;" />
+                    <img src="images/bikecad_animation.gif" style="width: 50px; height: 47px; position: absolute; left: -25px; top: -47px; display: block;" />
+                </div>
+            </div>
+            <div style="position: relative; width: 900px;">
+                <div id="chart"></div>
+                <div id="aggregate" style="position: absolute; right: 0; top: 0;"></div>
+            </div>
+            <!--div id="timeframe" style="clear: both;"></div-->
+        </div>
+
+        <div id="case-tooltip" style="width: 300px; display: none;">
+            <div class="panel panel-info" style="margin: 0; box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 30px;">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+                </div>
+            </div>
+        </div>
+        <!--
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="//d3js.org/d3.v3.min.js"></script>
+        <script src="//d3js.org/topojson.v1.min.js"></script>
+        <script src="//d3js.org/colorbrewer.v1.min.js"></script>
+        -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/d3.v3.min.js"></script>
+        <script src="js/topojson.v1.min.js"></script>
+        <script src="js/colorbrewer.v1.min.js"></script>
+    
+        <script src="js/DBSCAN.js"></script>
+        <script src="js/MapWidget.js"></script>
+        <script src="js/LineChartWidget.js"></script>
+        <script src="js/RadioPanelWidget.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

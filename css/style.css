@@ -1,0 +1,127 @@
+#slider {
+    width: 900px;
+    background: white;
+    box-shadow: #DDD 1px 1px 6px;
+    display: block;
+    margin: 40px 0;
+}
+
+#slider svg {
+    display: block;
+}
+
+#slider .extent {
+    fill: navy;
+    opacity: 0.3;
+}
+
+#slider .years rect {
+    fill: none;
+    stroke: #EEE;
+    stroke-width: 1px;
+    stroke-dasharray: 2, 2;
+}
+
+.timeframe {
+    background: white;
+    box-shadow: #DDD 1px 1px 6px;
+    display: block;
+    margin: 40px 0;
+}
+
+.boroughs-widget {
+    background: #FFF;
+    box-shadow: #DDD 1px 1px 6px;
+    display: block;
+    margin: 40px 0;
+}
+
+.boroughs-widget .borough {
+    stroke: #FFF;
+}
+
+.boroughs-widget .borough:hover {
+}
+
+.boroughs-widget .borough.active {
+    stroke: #AAA;
+}
+
+.linechart {
+    background: white;
+    box-shadow: #DDD 1px 1px 6px;
+    display: block;
+    margin: 40px 0;
+}
+
+.linechart .dot {
+    fill: red;
+    stroke: white;
+    stroke-width: 0.15px;
+    transform: scale(5)
+}
+
+.linechart .dot:hover {
+    transform: scale(7)
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+.axis.y .tick line,
+.axis.x .tick line {
+    opacity: 0;
+}
+
+.axis.y .tick text,
+.axis.x .tick text {
+    font-size: 9px;
+}
+
+.timeframe .item-background {
+    fill: white;
+}
+
+.timeframe .item-text {
+    fill: gray;
+}
+
+.timeframe .item-background.active {
+    fill: navy;
+}
+
+.timeframe .item-text.active {
+    fill: white;
+}
+
+* {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.aggregates {
+    background: white;
+    box-shadow: #DDD 1px 1px 6px;
+    display: block;
+}
+
+.aggregates .item-background {
+    fill: white;
+}
+
+.aggregates .item-text {
+    fill: gray;
+}
+
+.aggregates .item-background.active {
+    fill: navy;
+}
+
+.aggregates .item-text.active {
+    fill: white;
+}

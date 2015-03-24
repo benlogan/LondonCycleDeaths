@@ -1,0 +1,24 @@
+.map-widget {
+    box-shadow: #DDD 1px 1px 6px;
+    position: relative;
+}
+
+.map-widget-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.map-widget-feature {
+    stroke: white;
+    fill: white;
+}
+
+.map-widget-point {
+    stroke: maroon;
+    fill: white;
+}
+
+.map-widget-point:hover {
+    fill: maroon;
+}
