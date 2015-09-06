@@ -16,14 +16,19 @@
                 <input type="checkbox" id="clasterize" checked />
                 clusterize
             </label>
-            <div id="slider" style="clear: both; position: relative;">
-                <div id="bike" style="width: 50px; height: 47px; position: absolute; left: 0; top: 0; display: none;" />
-                    <img src="images/bikecad_animation.gif" style="width: 50px; height: 47px; position: absolute; left: -25px; top: -47px; display: block;" />
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-lg-10" style="margin: 20px 0px;">
+                    <div id="slider">
+                        <div id="bike" style="width: 50px; height: 47px; position: absolute; left: 0; top: 0; display: none;" />
+                            <img src="images/bikecad_animation.gif" style="width: 50px; height: 47px; position: absolute; left: -25px; top: -48px; display: block;" />
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div style="position: relative; width: 900px;">
-                <div id="chart"></div>
-                <div id="aggregate" style="position: absolute; right: 0; top: 0;"></div>
+                <div class="col-lg-1" style="margin: 20px 0px;">
+                    <a id="playpause" class="btn btn-primary"><span class="glyphicon glyphicon-pause"></span></a>
+                </div>
+                <div id="chart" class="col-lg-10" style="margin: 20px 0px;"></div>
+                <div id="aggregate" class="col-lg-2" style="margin: 20px 0px;"></div>
             </div>
             <!--div id="timeframe" style="clear: both;"></div-->
         </div>

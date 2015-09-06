@@ -1,9 +1,8 @@
 #slider {
-    width: 900px;
+    width: 700px;
     background: white;
     box-shadow: #DDD 1px 1px 6px;
     display: block;
-    margin: 40px 0;
 }
 
 #slider svg {
@@ -51,7 +50,6 @@
     background: white;
     box-shadow: #DDD 1px 1px 6px;
     display: block;
-    margin: 40px 0;
 }
 
 .linechart .dot {

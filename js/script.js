@@ -1,4 +1,6 @@
 (function (d3, $, topojson) {
+    var chartWidth = 700;
+    var fullWidth = 900;
     var Tooltip = (function () {
         var $tooltip = $('#case-tooltip');
 
@@ -53,7 +55,7 @@
 
     var map = new MapWidget(d3, {
         container: d3.select('#districts'),
-        width: 900,
+        width: fullWidth,
         height: 500,
         padding: 0.9,
         transitionDuration: 750,
@@ -301,7 +303,7 @@
         };
     }(d3, {
         container: d3.select('#slider'),
-        width: 900,
+        width: chartWidth,
         height: 40,
         onChange: function () {
             update(true);
@@ -444,21 +446,30 @@
                     extent = null,
                     t = null,
                     position = 0,
-                    delay = 1000,
+                    delay = 500,
                     speed = 20,
-                    steps = 900 / speed;
+                    steps = chartWidth / speed;
 
                 var step = function () {
                     position += speed;
+                    console.log(position,chartWidth);
                     t = null;
 
                     var date = slider.x.invert(position);
+                    var dateprev = Math.max(slider.x.invert(position-speed),date0);
 
                     if (date > date1) {
                         animation.stop();
                         slider.setExtent([ date0, date1 ]);
                     } else {
                         extent = [ date0, date ];
+                        
+                        d3.select('#bike')
+                            .style('left', slider.x(dateprev) + 'px')
+                            .transition()
+                            .duration(delay)
+                            .ease('linear')
+                            .style('left', slider.x(date) + 'px');
 
                         slider.setExtent(extent, true);
 
@@ -484,12 +495,20 @@
                         
                         map.setTopology(topology, max);
                         map.setPoints(data, false, true);
+                        update();
 
                         t = setTimeout(step, delay);
                     }
                 };
 
                 return {
+                    isComplete: function(){
+                        return position >= chartWidth;
+                    },
+                    restart: function(){
+                        position = 0;
+                        this.start();
+                    },
                     isRunning: function ()
                     {
                         return !!t;
@@ -499,12 +518,7 @@
                     {
                         step();
                         $('#bike').fadeIn();
-                        d3.select('#bike')
-                            .style('left', slider.x(date0) + 'px')
-                            .transition()
-                            .duration(delay * steps)
-                            .ease('linear')
-                            .style('left', slider.x(date1) + 'px');
+                        $("#playpause span.glyphicon").addClass("glyphicon-pause").removeClass("glyphicon-play");
                     },
 
                     stop: function ()
@@ -516,6 +530,7 @@
                         if (extent) {
                             slider.setExtent(extent);
                         }
+                        $("#playpause span.glyphicon").removeClass("glyphicon-pause").addClass("glyphicon-play");
                     }
                 };
             }(cases, map, topology));
@@ -526,6 +541,15 @@
 
             $('#clasterize').on('click', function () {
                 update();
+            });
+            
+            $("#playpause").on("click",function(){
+                if(animation.isRunning()){
+                    animation.stop();
+                }else{
+                    if(animation.isComplete()) animation.restart();
+                    else animation.start();
+                }
             });
 
             slider.setPoints(cases);
