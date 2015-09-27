@@ -1,4 +1,4 @@
-(function (d3, $, topojson) {
+define(["./RadioPanelWidget","./MapWidget","./LineChartWidget"],function(RadioPanelWidget,MapWidget,LineChartWidget){
     var chartWidth = 700;
     var fullWidth = 900;
     var Tooltip = (function () {
@@ -53,7 +53,7 @@
         };
     }());
 
-    var map = new MapWidget(d3, {
+    var map = new MapWidget({
         container: d3.select('#districts'),
         width: fullWidth,
         height: 500,
@@ -103,7 +103,7 @@
         Tooltip.hide();
     });
 
-    var lineChart = new LineChartWidget(d3, {
+    var lineChart = new LineChartWidget({
         container: d3.select('#chart'),
         width: 700,
         height: 200,
@@ -138,7 +138,7 @@
     */
 
     /*
-    var timeframe = new RadioPanelWidget(d3, {
+    var timeframe = new RadioPanelWidget({
         container: d3.select('#timeframe'),
         items: d3.range(2001, 2016).map(function (year) {
             return {
@@ -158,7 +158,7 @@
     });
     */
 
-    var aggregates = new RadioPanelWidget(d3, {
+    var aggregates = new RadioPanelWidget({
         container: d3.select('#aggregate'),
         items: [
             {
@@ -563,4 +563,4 @@
             animation.start();
         });
     });
-}(d3, $, topojson));
+});

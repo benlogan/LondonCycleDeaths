@@ -48,10 +48,12 @@
         <script src="js/lib/colorbrewer.v1.min.js"></script>
     
         <script src="js/lib/DBSCAN.js"></script>
-        <script src="js/MapWidget.js"></script>
-        <script src="js/LineChartWidget.js"></script>
-        <script src="js/RadioPanelWidget.js"></script>
-        <script src="js/script.js"></script>
+        <script data-main="/script" src="js/lib/require.js"></script>
+        <script>
+            require.config({
+                baseUrl: "/LondonCycleDeaths/js"
+            });
+        </script>
         
         <div style="font-size: 12px; text-align: center;">&copy; Ben Logan</div>
     </body>
