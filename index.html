@@ -4,8 +4,8 @@
         <title>Project #2 - London Cycle Deaths</title>
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/MapWidget.css" />
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/lib/bootstrap.min.css">
+        <link rel="stylesheet" href="css/lib/bootstrap-theme.min.css">
     </head>
     <body>
         <div class="container" style="width: 900px;">
@@ -16,14 +16,19 @@
                 <input type="checkbox" id="clasterize" checked />
                 clusterize
             </label>
-            <div id="slider" style="clear: both; position: relative;">
-                <div id="bike" style="width: 50px; height: 47px; position: absolute; left: 0; top: 0; display: none;" />
-                    <img src="images/bikecad_animation.gif" style="width: 50px; height: 47px; position: absolute; left: -25px; top: -47px; display: block;" />
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-lg-10" style="margin: 20px 0px;">
+                    <div id="slider">
+                        <div id="bike" style="width: 50px; height: 47px; position: absolute; left: 0; top: 0; display: none;" />
+                            <img src="images/bikecad_animation.gif" style="width: 50px; height: 47px; position: absolute; left: -25px; top: -48px; display: block;" />
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div style="position: relative; width: 900px;">
-                <div id="chart"></div>
-                <div id="aggregate" style="position: absolute; right: 0; top: 0;"></div>
+                <div class="col-lg-1" style="margin: 20px 0px;">
+                    <a id="playpause" class="btn btn-primary"><span class="glyphicon glyphicon-pause"></span></a>
+                </div>
+                <div id="chart" class="col-lg-10" style="margin: 20px 0px;"></div>
+                <div id="aggregate" class="col-lg-2" style="margin: 20px 0px;"></div>
             </div>
             <!--div id="timeframe" style="clear: both;"></div-->
         </div>
@@ -36,24 +41,19 @@
                 </div>
             </div>
         </div>
-        <!--
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-        <script src="//d3js.org/d3.v3.min.js"></script>
-        <script src="//d3js.org/topojson.v1.min.js"></script>
-        <script src="//d3js.org/colorbrewer.v1.min.js"></script>
-        -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/d3.v3.min.js"></script>
-        <script src="js/topojson.v1.min.js"></script>
-        <script src="js/colorbrewer.v1.min.js"></script>
+        <script src="js/lib/jquery.min.js"></script>
+        <script src="js/lib/bootstrap.min.js"></script>
+        <script src="js/lib/d3.v3.min.js"></script>
+        <script src="js/lib/topojson.v1.min.js"></script>
+        <script src="js/lib/colorbrewer.v1.min.js"></script>
     
-        <script src="js/DBSCAN.js"></script>
-        <script src="js/MapWidget.js"></script>
-        <script src="js/LineChartWidget.js"></script>
-        <script src="js/RadioPanelWidget.js"></script>
-        <script src="js/script.js"></script>
+        <script src="js/lib/DBSCAN.js"></script>
+        <script data-main="/script" src="js/lib/require.js"></script>
+        <script>
+            require.config({
+                baseUrl: "/LondonCycleDeaths/js"
+            });
+        </script>
         
         <div style="font-size: 12px; text-align: center;">&copy; Ben Logan</div>
     </body>
